@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="NotAuthenticatedMasterPage.master.cs" Inherits="NotAuthenticatedMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="Scripts/jquery-3.5.0.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = window.location;
+            $('.navbar-nav').find('.active').removeClass('active');
+            $('.nav-item').each(function () {
+                console.log(this.href);
+                    if (this.href == url) {
+                        $(this).addClass('active');
+                    }
+                });
+            });
+    </script>
+
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">NoteTaker</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/Login.aspx">Login<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="/Register.aspx">Register</a>
+          <a class="nav-item nav-link" href="/AdminLogin.aspx">Admin Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
